@@ -12,6 +12,18 @@ async function update(req: Request, res: Response) {
   return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
 }
 
+async function remove(req: Request, res: Response) {
+  const { id } = req.params;
+  const serviceResponse = await packagesService.remove(Number(id));
+
+  if (serviceResponse.status !== 'SUCCESSFUL') {
+    return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+  }
+
+  return res.status(204).end();
+}
+
 export default {
   update,
+  remove,
 };

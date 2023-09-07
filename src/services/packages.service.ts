@@ -19,6 +19,19 @@ async function update(updatedPackage: Package): Promise<ServiceResponse<Package>
   return { status: 'SUCCESSFUL', data: packageUpdated.dataValues };
 }
 
+async function remove(id: number): Promise<ServiceResponse<{ message: string }>> {
+  const packageToRemove = await PackageModel.findByPk(id);
+
+  if (!packageToRemove) {
+    return { status: 'NOT_FOUND', data: { message: 'Pacote não encontrado!' } };
+  }
+
+  await PackageModel.destroy({ where: { id } });
+
+  return { status: 'SUCCESSFUL', data: { message: 'Pacote deletado com sucesso!' } };
+}
+
 export default {
   update,
+  remove,
 };
