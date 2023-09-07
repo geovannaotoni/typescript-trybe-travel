@@ -14,7 +14,7 @@ As seguintes dependências já estão incluídas no arquivo package.json:
 ## :computer: Visualize este projeto:
 - Instale as dependências: `npm install`
 - Execute a aplicação para inicializar o container do banco de dados e da API: `docker-compose up -d`
-- Crie o banco de dados, as tabelas e insira os dados nas tabelas packages e users: `npm run db:reset`.
+- Dentro do container `trybe_travel`, crie o banco de dados, as tabelas e insira os dados nas tabelas packages e users: `npm run db:reset`.
 
 ## :bulb: Habilidades:
 A API possui as seguintes rotas:
